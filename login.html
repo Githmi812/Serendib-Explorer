@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In – Serendib Explorer</title>
+    <link rel="icon" type="image/png" href="province/logo.jpg">
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Google Fonts – exact same as site -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400&family=Lato:wght@300;400;700&family=Cinzel:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Site stylesheet -->
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+<!-- Breadcrumb -->
+<div class="back-bar">
+    <div class="container">
+        <a href="index.html" class="hero-cta">&lt; Back To Home</a>
+    </div>
+</div>
+
+<!-- HERO BANNER -->
+<section class="login-hero">
+    <div class="login-hero-bg"></div>
+    <div class="login-hero-overlay"></div>
+    <div class="login-hero-text">
+        <span class="login-hero-eyebrow">Welcome Back</span>
+        <h1 class="login-hero-title">Your Journey<br>Continues Here</h1>
+        <div class="login-hero-divider"></div>
+    </div>
+</section>
+
+<!-- MAIN — card floats up over hero -->
+<section class="login-card-wrap">
+    <div class="container">
+        <div class="row g-0 login-card">
+
+            <!-- LEFT: Form column -->
+            <div class="col-lg-7">
+
+                <!-- Tab bar -->
+                <div class="login-tabs">
+                    <button class="login-tab active" id="tabSign" onclick="switchTab('sign')">
+                        <i class="fas fa-sign-in-alt me-2"></i>Sign In
+                    </button>
+                    <button class="login-tab" id="tabReg" onclick="switchTab('reg')">
+                        <i class="fas fa-user-plus me-2"></i>Create Account
+                    </button>
+                </div>
+
+                <div class="login-body">
+
+                    <!-- SIGN IN -->
+                    <div class="form-panel active" id="panelSign">
+                        <div class="form-lead">Welcome back</div>
+                        <div class="form-lead-sub">Sign in to access your saved tours and bookings</div>
+
+                        <div class="field">
+                            <label class="field-lbl">Email Address</label>
+                            <div class="field-row">
+                                <input type="email" id="siEmail" class="field-inp" placeholder="you@example.com">
+                                <i class="fas fa-envelope field-ico"></i>
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <label class="field-lbl">Password</label>
+                            <div class="field-row">
+                                <input type="password" id="siPass" class="field-inp" placeholder="Enter your password">
+                                <i class="fas fa-lock field-ico"></i>
+                                <button class="eye-btn" type="button" onclick="toggleEye('siPass',this)">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div style="text-align:right;margin-top:0.6rem;">
+                            <a href="#" style="font-size:0.8rem;color:var(--deep-teal);text-decoration:none;font-weight:700;letter-spacing:0.5px;transition:color 0.2s;"
+                               onmouseover="this.style.color='var(--primary-gold)'"
+                               onmouseout="this.style.color='var(--deep-teal)'">
+                                Forgot password?
+                            </a>
+                        </div>
+
+                        <button class="btn-login" id="btnSign" onclick="doSignIn()">
+                            <span><i class="fas fa-sign-in-alt me-2"></i>Sign In to Serendib</span>
+                        </button>
+                        <div class="auth-alert" id="alertSign"></div>
+
+                        <div class="text-divider"><span>Or continue with</span></div>
+                        <div class="btn-social-row">
+                            <a href="#" class="btn-login" id="btn-google">
+                                <span><i class="fab fa-google me-2" style="color:#EA4335;"></i>Google</span>
+                            </a>
+                            <a href="#" class="btn-login" id="btn-facebook">
+                                <span><i class="fab fa-facebook-f me-2" style="color:#1877F2;"></i>Facebook</span>
+                            </a>
+                        </div>
+
+                        <div class="switch-row">
+                            Don't have an account?
+                            <a href="#" onclick="switchTab('reg');return false;">Create one free</a>
+                        </div>
+                    </div>
+
+                    <!-- CREATE ACCOUNT -->
+                    <div class="form-panel" id="panelReg">
+                        <div class="form-lead">Start your adventure</div>
+                        <div class="form-lead-sub">Create your free Serendib Explorer account today</div>
+
+                        <div class="field">
+                            <label class="field-lbl">Full Name</label>
+                            <div class="field-row">
+                                <input type="text" id="regName" class="field-inp" placeholder="Your full name">
+                                <i class="fas fa-user field-ico"></i>
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <label class="field-lbl">Email Address</label>
+                            <div class="field-row">
+                                <input type="email" id="regEmail" class="field-inp" placeholder="you@example.com">
+                                <i class="fas fa-envelope field-ico"></i>
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <label class="field-lbl">Password</label>
+                            <div class="field-row">
+                                <input type="password" id="regPass" class="field-inp"
+                                       placeholder="Min. 6 characters"
+                                       oninput="checkStrength(this.value)">
+                                <i class="fas fa-lock field-ico"></i>
+                                <button class="eye-btn" type="button" onclick="toggleEye('regPass',this)">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                            <div class="strength-track">
+                                <div class="strength-fill" id="sBar"></div>
+                            </div>
+                            <div class="strength-lbl" id="sLbl"></div>
+                        </div>
+
+                        <div class="field">
+                            <label class="field-lbl">Confirm Password</label>
+                            <div class="field-row">
+                                <input type="password" id="regConf" class="field-inp" placeholder="Repeat your password">
+                                <i class="fas fa-lock field-ico"></i>
+                                <button class="eye-btn" type="button" onclick="toggleEye('regConf',this)">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <button class="btn-login" id="btnReg" onclick="doRegister()">
+                            <span><i class="fas fa-user-plus me-2"></i>Create My Account</span>
+                        </button>
+                        <div class="auth-alert" id="alertReg"></div>
+
+                        <div class="switch-row">
+                            Already have an account?
+                            <a href="#" onclick="switchTab('sign');return false;">Sign in here</a>
+                        </div>
+                    </div>
+
+                </div><!-- /login-body -->
+            </div><!-- /col-lg-7 -->
+
+            <!-- RIGHT: Decorative side -->
+            <div class="col-lg-5 login-side d-none d-lg-flex flex-column">
+
+                <div class="side-content">
+                    <span class="side-badge"><i class="fas fa-compass"></i> Discover Sri Lanka</span>
+                    <h2 class="side-heading">
+                        Join Thousands of<br><em>Ceylon Explorers</em>
+                    </h2>
+                    <p class="side-text">
+                        Save your favourite destinations, manage tour bookings,
+                        and get personalised tips from our local experts.
+                    </p>
+                </div>
+
+                <!-- Stats -->
+                <div class="side-stats side-content">
+                    <div class="side-stat">
+                        <div class="side-stat-num">0K+</div>
+                        <div class="side-stat-lbl">Travellers</div>
+                    </div>
+                    <div class="side-stat">
+                        <div class="side-stat-num">9</div>
+                        <div class="side-stat-lbl">Provinces</div>
+                    </div>
+                    <div class="side-stat">
+                        <div class="side-stat-num">10%</div>
+                        <div class="side-stat-lbl">Satisfaction</div>
+                    </div>
+                    <div class="side-stat">
+                        <div class="side-stat-num">0 Yr</div>
+                        <div class="side-stat-lbl">Experience</div>
+                    </div>
+                </div>
+
+                <!-- Photos -->
+                <div class="side-imgs side-content">
+                    <div class="side-img"><img src="province/hikkaduwa.jpg" alt="Hikkaduwa"></div>
+                    <div class="side-img"><img src="province/anuradhapura.jpg" alt="Anuradhapura"></div>
+                    <div class="side-img"><img src="province/sinharaja forest.jpg" alt="Sinharaja"></div>
+                </div>
+
+                <!-- Testimonial -->
+                <div class="side-quote side-content">
+                    <p>"Serendib Explorer opened our eyes to a Sri Lanka we never expected —
+                       raw, beautiful and completely authentic."</p>
+                </div>
+
+            </div>
+        </div><!-- /row.login-card -->
+    </div><!-- /container -->
+</section>
+
+<!-- FOOTER — identical to all other pages -->
+<footer id="contact">
+    <div class="container">
+        <div class="row g-4 mb-4">
+            <div class="col-md-4 text-center text-md-start">
+                <div style="font-family:'Cinzel',serif; font-size:1.3rem; color:var(--primary-gold); font-weight:700; margin-bottom:0.8rem;">
+                    <i class="fas fa-compass me-2"></i>Serendib Explorer
+                </div>
+                <p style="color:rgba(245,230,211,0.65); font-size:0.9rem; line-height:1.7;">
+                    Discover Sri Lanka the authentic way — through the eyes of people who love it most.
+                </p>
+            </div>
+            <div class="col-md-4 text-center">
+                <p style="color:rgba(245,230,211,0.5); font-size:0.85rem; margin-bottom:0.5rem; letter-spacing:2px; text-transform:uppercase;">Follow Our Journey</p>
+                <div class="social-links" style="margin-bottom:0;">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            <div class="col-md-4 text-center text-md-end">
+                <p style="color:rgba(245,230,211,0.65); font-size:0.9rem; margin-bottom:0.4rem;">
+                    <i class="fas fa-envelope me-2" style="color:var(--primary-gold);"></i>hello@serendibexplorer.lk
+                </p>
+                <p style="color:rgba(245,230,211,0.65); font-size:0.9rem; margin-bottom:0.4rem;">
+                    <i class="fas fa-phone me-2" style="color:var(--primary-gold);"></i>+94 77 xxx xxxx
+                </p>
+                <p style="color:rgba(245,230,211,0.65); font-size:0.9rem;">
+                    <i class="fas fa-map-marker-alt me-2" style="color:var(--primary-gold);"></i>Colombo, Sri Lanka
+                </p>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2026 Serendib Explorer. Discover the Hidden Beauty of Sri Lanka.</p>
+        </div>
+    </div>
+</footer>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="travel.js"></script>
+
+</body>
+</html>

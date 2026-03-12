@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serendib Explorer - Sri Lanka</title>
+    <link rel="icon" type="image/png" href="province/logo.jpg">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Google Fonts - Distinctive choices -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Lato:wght@300;400;700&family=Cinzel:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation -->
+     <header>
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html"><img src="province/logo.jpg" alt="Logo" style="width:70px; height:70px; margin-right: 10px;"></a> 
+             </div>
+            <a class="navbar-brand" href="index.html">Serendib Explorer</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="tour.html">Tour</a></li>
+                    <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="hero-bg"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content container">
+            <h1 class="hero-title">Time to Travel<br>Sri Lanka</h1>
+            <p class="hero-description">
+                Discover the hidden treasures of Ceylon, where ancient temples meet pristine beaches, 
+                and secret locations await your exploration. Experience Sri Lanka like never before.
+            </p>
+            <a href="#tours" class="hero-cta">Explore Now</a>
+        </div>
+        <div class="scroll-indicator">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- Tours Section -->
+    <section id="tours" class="tours-section">
+        <div class="container">
+            <h2 class="section-title">Popular Sri Lankan Destinations</h2>
+            <p class="section-subtitle">Handpicked journeys through Ceylon's finest treasures</p>
+            
+            <div class="row mt-3" id="western" >
+                    <div class="col-md-4 fade-in">
+                        <div class="tour-card">
+                            <img src="province/western.jpg" alt="Western Province" class="tour-image">
+                            <div class="tour-overlay">
+                                <span class="tour-badge">Western Province</span>
+                                <p class="tour-description">The Western Province is the commercial and urban hub of Sri Lanka. Tourism here centers around Colombo’s city attractions, shopping malls, museums, nightlife, and nearby beaches like Negombo and Mount Lavinia. 
+                                    It blends modern life with colonial history.</p>
+                                <a href="tour.html#westernprovince" class="tour-btn">Discover More</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 fade-in" id="Central">
+                        <div class="tour-card">
+                            <img src="province/dalada maligawa.jpg" alt="Sigiriya" class="tour-image">
+                            <div class="tour-overlay">
+                                <span class="tour-badge">Central Province</span>
+                                <p class="tour-description">This province is famous for its cool climate, scenic hills, and cultural heritage. Key attractions include Kandy (Temple of the Tooth Relic), 
+                                    tea plantations, waterfalls, and nature spots like Horton Plains. It is a major cultural and eco-tourism region.</p>
+                                <a href="tour.html#centralprovince" class="tour-btn">Discover More</a>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-4 fade-in" id="southern">
+                        <div class="tour-card">
+                            <img src="province/hikkaduwa.jpg" alt="Hikkaduwa" class="tour-image">
+                            <div class="tour-overlay">
+                                <span class="tour-badge">Southern Province</span>
+                                <p class="tour-description">The Southern Province is well known for beautiful beaches and historic sites. Tourists visit Galle Fort, Mirissa, Unawatuna, and Hikkaduwa for beach tourism, whale watching, and colonial architecture.</p>
+                                <a href="tour.html#southernprovince" class="tour-btn">Discover More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mt-3" id="Northern">
+                        <div class="col-md-4 fade-in">
+                            <div class="tour-card">
+                                <img src="province/jaffna.jpg" alt="Jaffna" class="tour-image">
+                                <div class="tour-overlay">
+                                    <span class="tour-badge">Northern Province</span>
+                                    <p class="tour-description">Tourism in the Northern Province highlights Tamil culture, Hindu temples, and historic sites. Jaffna, Nallur Kandaswamy Temple, islands like Delft, and quiet beaches attract visitors interested in culture and heritage.</p>
+                                    <a href="tour.html#northernprovince" class="tour-btn">Discover More</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 fade-in" id="Eastern">
+                            <div class="tour-card">
+                                <img src="province/nilaveli beach.jpg" alt="Nilaveli Beach" class="tour-image">
+                                <div class="tour-overlay">
+                                    <span class="tour-badge">Eastern Province</span>
+                                    <p class="tour-description">The Eastern Province is popular for its unspoiled beaches and marine tourism. Destinations such as Nilaveli, Pasikudah, and Arugam Bay are famous for swimming, diving, and surfing. It also has rich cultural diversity.</p>
+                                    <a href="tour.html#easternprovince" class="tour-btn">Discover More</a>
+                                </div>
+                            </div>
+                        </div>
+                    
+                    
+                    
+                    <div class="col-md-4 fade-in" id="north western">
+                        <div class="tour-card">
+                            <img src="province/wilpattu national park.jpg" alt="Wilpattu National Park" class="tour-image">
+                            <div class="tour-overlay">
+                                <span class="tour-badge">North Western Province</span>
+                                <p class="tour-description">This province offers a mix of religious, historical, and coastal tourism. Wilpattu National Park, Munneswaram Temple, and fishing villages attract nature lovers and pilgrims. It is less crowded and peaceful.</p>
+                                <a href="tour.html#northwesternprovince" class="tour-btn">Discover More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <div class="row mt-3" id="north Central">
+                <div class="col-md-4 fade-in">
+                    <div class="tour-card">
+                        <img src="province/anuradhapura.jpg" alt="Anuradhapura" class="tour-image">
+                        <div class="tour-overlay">
+                            <span class="tour-badge">North Central Province</span>
+                            <p class="tour-description">The North Central Province is the heart of ancient Sri Lankan civilization. Major attractions include Anuradhapura and Polonnaruwa, which are UNESCO World Heritage Sites. Tourism focuses on history, archaeology, and religious pilgrimages.</p>
+                            <a href="tour.html#northcentralprovince" class="tour-btn">Discover More</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 fade-in" id="uva">
+                    <div class="tour-card">
+                        <img src="province/idhalgashinna.jpg" alt="Idhalgashinna" class="tour-image">
+                        <div class="tour-overlay">
+                            <span class="tour-badge">Uva Province</span>
+                            <p class="tour-description">Uva Province is known for its natural beauty and adventure tourism. Ella, Badulla, waterfalls, and hiking trails draw tourists who enjoy mountains, rail journeys, and eco-tourism experiences.</p>
+                            <a href="tour.html#uvaprovince" class="tour-btn">Discover More</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 fade-in" id="Sabaragamuwa">
+                    <div class="tour-card">
+                        <img src="province/sinharaja forest.jpg" alt="Sinharaja Forest" class="tour-image">
+                        <div class="tour-overlay">
+                            <span class="tour-badge">Sabaragamuwa Province</span>
+                            <p class="tour-description">This province is famous for gem mining, rainforests, and religious tourism. Key attractions include Adam’s Peak (Sri Pada), Sinharaja Rainforest, and scenic landscapes. It attracts pilgrims and nature enthusiasts alike.</p>
+                            <a href="tour.html#sabaragamuwaprovince" class="tour-btn">Discover More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Section -->
+    <section id="gallery" class="video-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 video-content fade-in">
+                    <h2 class="video-title">Discover The World In A <span>New Way</span></h2>
+                    <p class="video-text">
+                          Every journey has a story, and Sri Lanka tells it through whispers of history, rhythms of nature, 
+                        and colors that stay with you forever. Let these visuals guide you through places where memories 
+                        are made and dreams feel closer than ever.
+                    </p>
+                    <p class="video-text" style="font-style: italic; opacity: 0.9;">
+                        "Sri Lanka is a small island with a big heart, where every corner tells a story and every sunset paints a masterpiece."
+                    </p>
+                </div>
+                <div class="col-lg-6 fade-in">
+                             <div class="video-gallery">
+                                 <div class="video-thumb">
+                                     <video src="video1.mp4" muted autoplay loop></video>
+                                 </div>
+                                 <div class="video-thumb">
+                                      <video src="video2.mp4" muted autoplay loop></video>
+                                     </div>
+                                 <div class="video-thumb">
+                                     <video src="video3.mp4" muted autoplay loop></video>
+                                     </div>
+                                 <div class="video-thumb">
+                                      <video src="video4.mp4" muted autoplay loop></video>
+                                     </div>
+                            </div>
+                </div>
+        </div>
+    </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+    <div class="container">
+        <div class="row g-4 mb-4">
+            <div class="col-md-4 text-center text-md-start">
+                <div style="font-family:'Cinzel',serif; font-size:1.3rem; color:var(--primary-gold); font-weight:700; margin-bottom:0.8rem;">
+                    <i class="fas fa-compass me-2"></i>Serendib Explorer
+                </div>
+                <p style="color:rgba(245,230,211,0.65); font-size:0.9rem; line-height:1.7;">
+                    Discover Sri Lanka the authentic way — through the eyes of people who love it most.
+                </p>
+            </div>
+            <div class="col-md-4 text-center">
+                <p style="color:rgba(245,230,211,0.5); font-size:0.85rem; margin-bottom:0.5rem; letter-spacing:2px; text-transform:uppercase;">Follow Our Journey</p>
+                <div class="social-links" style="margin-bottom:0;">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            <div class="col-md-4 text-center text-md-end">
+                <p style="color:rgba(245,230,211,0.65); font-size:0.9rem; margin-bottom:0.4rem;">
+                    <i class="fas fa-envelope me-2" style="color:var(--primary-gold);"></i>hello@serendibexplorer.lk
+                </p>
+                <p style="color:rgba(245,230,211,0.65); font-size:0.9rem; margin-bottom:0.4rem;">
+                    <i class="fas fa-phone me-2" style="color:var(--primary-gold);"></i>+94 77 xxx xxxx
+                </p>
+                <p style="color:rgba(245,230,211,0.65); font-size:0.9rem;">
+                    <i class="fas fa-map-marker-alt me-2" style="color:var(--primary-gold);"></i>Colombo, Sri Lanka
+                </p>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2026 Serendib Explorer. Discover the Hidden Beauty of Sri Lanka.</p>
+        </div>
+    </div>
+</footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="travel.js"></script>
+</body>
+</html>
