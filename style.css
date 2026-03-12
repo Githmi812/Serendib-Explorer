@@ -1309,4 +1309,9 @@
             .story-img-grid { grid-template-columns: 1fr; grid-template-rows: 200px 200px 200px; }
             .story-img-grid .img-main { grid-row: span 1; }
             .whyus-img-wrap img { height: 280px; }
+
         }
+.province-title{
+    padding: 5px ;
+    padding-top: 5%;
+}
