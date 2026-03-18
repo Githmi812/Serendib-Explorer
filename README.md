@@ -34,3 +34,16 @@ North Western Province
 North Central Province
 Uva Province
 Sabaragamuwa Province
+
+Setup Instructions Back end
+1. Import the Database
+
+Open XAMPP Control Panel and start Apache and MySQL
+Go to http://localhost/phpmyadmin
+Click New, enter serendib_db and click Create
+Click Import, select serendib_db.sql from the project folder and click Go
+
+2. Run the Project
+
+Copy the serendib folder into C:\xampp\htdocs\
+Open your browser and go to http://localhost/Serendib-Explorer/index.html
