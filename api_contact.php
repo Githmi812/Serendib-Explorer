@@ -4,22 +4,20 @@ header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Methods: POST");
 header("Access-Control-Allow-Headers: Content-Type");
 
-require_once "db.php";
+require_once "functions.php";
 
 $data = json_decode(file_get_contents("php://input"), true);
 
-$name    = trim($data["name"]    ?? "");
-$email   = trim($data["email"]   ?? "");
-$message = trim($data["message"] ?? "");
+$name    = sanitize_text($data["name"]    ?? "");
+$email   = sanitize_text($data["email"]   ?? "");
+$message = sanitize_text($data["message"] ?? "");
 
 if (!$name || !$email || !$message) {
-    echo json_encode(["success" => false, "message" => "Please fill in all fields."]);
-    exit;
+    json_response(false, "DB connection failed");
 }
 
 if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-    echo json_encode(["success" => false, "message" => "Please enter a valid email address."]);
-    exit;
+    json_response(false, "DB connection failed");
 }
 
 $stmt = $pdo->prepare("INSERT INTO messages (name, email, message) VALUES (?, ?, ?)");
