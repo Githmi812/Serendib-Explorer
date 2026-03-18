@@ -124,7 +124,7 @@
             return showAlert('alertSign', 'Please fill in both fields.', 'is-warn');
         setBtn('btnSign', true);
         try {
-            const r = await fetch('/serendib/api/login', {
+            const r = await fetch('api_login.php', {
                 method:'POST', headers:{'Content-Type':'application/json'},
                 body: JSON.stringify({ email, password: pass })
             });
@@ -158,7 +158,7 @@
             return showAlert('alertReg', 'Passwords do not match.', 'is-warn');
         setBtn('btnReg', true);
         try {
-            const r = await fetch('/serendib/api/register', {
+            const r = await fetch('api_register.php', {
                 method:'POST', headers:{'Content-Type':'application/json'},
                 body: JSON.stringify({ name, email, password: pass })
             });
