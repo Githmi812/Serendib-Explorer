@@ -4,35 +4,32 @@ header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Methods: POST");
 header("Access-Control-Allow-Headers: Content-Type");
 
+require_once "functions.php";
 require_once "db.php";
 
 $data = json_decode(file_get_contents("php://input"), true);
 
-$name     = trim($data["name"]     ?? "");
-$email    = trim($data["email"]    ?? "");
-$password =      $data["password"] ?? "";
+$name     = sanitize_text($data["name"]     ?? "");
+$email    = sanitize_text($data["email"]    ?? "");
+$password = sanitize_text($data["password"] ?? "");
 
 if (!$name || !$email || !$password) {
-    echo json_encode(["success" => false, "message" => "All fields are required."]);
-    exit;
+    json_response(false, "All fields are required.");
 }
 
 if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-    echo json_encode(["success" => false, "message" => "Invalid email address."]);
-    exit;
+    json_response(false, "All fields are required.");
 }
 
 if (strlen($password) < 6) {
-    echo json_encode(["success" => false, "message" => "Password must be at least 6 characters."]);
-    exit;
+    json_response(false, "All fields are required.");
 }
 
 // Check if email already exists
 $stmt = $pdo->prepare("SELECT id FROM users WHERE email = ?");
 $stmt->execute([$email]);
 if ($stmt->fetch()) {
-    echo json_encode(["success" => false, "message" => "Email is already registered."]);
-    exit;
+    json_response(false, "All fields are required.");
 }
 
 // Save the user (password is hashed for security)
