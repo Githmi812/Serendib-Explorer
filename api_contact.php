@@ -14,11 +14,11 @@ $email   = sanitize_text($data["email"]   ?? "");
 $message = sanitize_text($data["message"] ?? "");
 
 if (!$name || !$email || !$message) {
-    json_response(false, "DB connection failed");
+    json_response(false, "All fields are required.");
 }
 
 if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-    json_response(false, "DB connection failed");
+    json_response(false, "Please enter a valid email address.");
 }
 
 $stmt = $pdo->prepare("INSERT INTO messages (name, email, message) VALUES (?, ?, ?)");
