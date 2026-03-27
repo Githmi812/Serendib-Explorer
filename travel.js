@@ -181,3 +181,54 @@
         if (document.getElementById('panelSign').classList.contains('active')) doSignIn();
         else doRegister();
     });
+    /* ── CONTACT FORM ── */
+async function sendMessage() {
+    const name    = document.getElementById('cfName').value.trim();
+    const email   = document.getElementById('cfEmail').value.trim();
+    const message = document.getElementById('cfMessage').value.trim();
+
+    const alert = document.getElementById('cfAlert');
+    const btn   = document.getElementById('cfBtn');
+
+    if (!name || !email || !message) {
+        alert.style.display = 'block';
+        alert.style.background = 'rgba(231,76,60,0.15)';
+        alert.style.color = '#e74c3c';
+        alert.innerHTML = '<i class="fas fa-exclamation-triangle me-2"></i>Please fill in all fields.';
+        return;
+    }
+
+    btn.disabled = true;
+    btn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Sending…';
+
+    try {
+        const r = await fetch('api_contact.php', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ name, email, message })
+        });
+        const d = await r.json();
+
+        alert.style.display = 'block';
+        if (d.success) {
+            alert.style.background = 'rgba(46,204,113,0.15)';
+            alert.style.color = '#2ecc71';
+            alert.innerHTML = '<i class="fas fa-check-circle me-2"></i>' + d.message;
+            document.getElementById('cfName').value    = '';
+            document.getElementById('cfEmail').value   = '';
+            document.getElementById('cfMessage').value = '';
+        } else {
+            alert.style.background = 'rgba(231,76,60,0.15)';
+            alert.style.color = '#e74c3c';
+            alert.innerHTML = '<i class="fas fa-times-circle me-2"></i>' + d.message;
+        }
+    } catch {
+        alert.style.display = 'block';
+        alert.style.background = 'rgba(231,76,60,0.15)';
+        alert.style.color = '#e74c3c';
+        alert.innerHTML = '<i class="fas fa-times-circle me-2"></i>Cannot reach server. Is XAMPP running?';
+    }
+
+    btn.disabled = false;
+    btn.innerHTML = '<i class="fas fa-paper-plane me-2"></i>Send Message';
+}
