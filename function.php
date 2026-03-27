@@ -67,4 +67,5 @@ function require_auth(): array {
     }
     return $user;
 }
+
 ?>
